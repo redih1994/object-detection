@@ -49,11 +49,11 @@ while True:
     status_list.append(status)
     status_list = status_list[-2:]
 
-    if status_list == [1, 0]:
-        email_thread = Thread(target=send_email, args=(image_with_obj, ))
-        email_thread.daemon = True
-
-        email_thread.start()
+    # if status_list == [1, 0]:
+    #     email_thread = Thread(target=send_email, args=(image_with_obj, ))
+    #     email_thread.daemon = True
+    #
+    #     email_thread.start()
 
 
     cv2.imshow("Video", frame)
