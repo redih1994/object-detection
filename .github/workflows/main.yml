@@ -8,6 +8,12 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
+    - name: Setup Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.11'
+    - name: Install semver
+      run: pip install semver
     - name: Check Changes and Bump Version
       run: |
         changes=$(git diff --name-only HEAD^ HEAD)
