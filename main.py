@@ -2,8 +2,6 @@ import glob
 import os
 import cv2
 import time
-from emailing import send_email
-from threading import Thread
 
 video = cv2.VideoCapture(0)
 #sleep to let the camera warm up
