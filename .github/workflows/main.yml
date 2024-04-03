@@ -29,6 +29,6 @@ jobs:
           export VERSION_BUMP='patch'
         fi
         current_version=$(git describe --abbrev=0)
-        new_version=$(python -m semver --increment $VERSION_BUMP $current_version)
+        new_version=$(python -m semver bump $VERSION_BUMP $current_version)
         echo "New version: $new_version"
         echo "::set-env name=NEW_VERSION::$new_version"
