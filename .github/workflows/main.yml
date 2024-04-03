@@ -23,7 +23,7 @@ jobs:
       run: pip install semver
     - name: Check Changes and Bump Version
       run: |
-        PR_NAME=$(jq -r ".pull_request.title" "$GITHUB_EVENT_PATH")
+        PR_NAME="${{ github.event.pull_request.title }}"
         echo "PR_NAME: $PR_NAME"
         if [[ $PR_NAME == *"BreakingChange"* ]]; then
           export VERSION_BUMP='major'
