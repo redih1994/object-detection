@@ -20,7 +20,7 @@ jobs:
       run: pip install semver
     - name: Check Changes and Bump Version
       run: |
-        changes=$(git diff --name-only HEAD^ HEAD)
+        changes=$(git diff --name-only HEAD~1 HEAD)
         if [[ $changes == *"BreakingChange"* ]]; then
           export VERSION_BUMP='major'
         elif [[ $changes == *"NewFeature"* ]]; then
