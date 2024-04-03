@@ -37,5 +37,5 @@ jobs:
         git config --global user.email "hredi1994@gmail.com"
         git config --global user.name "redih1994"
         git tag -a ${{ env.NEW_VERSION }} -m "Bump version to ${{ env.NEW_VERSION }}"
-        - name: Push tags
-          run: git push origin --tags
+    - name: Push tags
+      run: git push origin --tags
