@@ -7,7 +7,7 @@ from setuptools import glob
 from emailing import send_email
 from threading import Thread
 
-# Load the pre-trained face detection classifier
+# Load the pre-trained face detection classifier 123
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
 video = cv2.VideoCapture(0)
