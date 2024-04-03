@@ -4,7 +4,7 @@ import cv2
 import time
 
 video = cv2.VideoCapture(0)
-#sleep to let the camera warm up 123
+#sleep to let the camera warm up
 time.sleep(1)
 first_frame = None
 status_list = []
