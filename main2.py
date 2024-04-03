@@ -12,7 +12,7 @@ face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_fronta
 
 video = cv2.VideoCapture(0)
 
-#test 123
+#test 123123
 time.sleep(1)
 status_list = []
 count = 1
