@@ -6,7 +6,7 @@ from emailing import send_email
 from threading import Thread
 
 video = cv2.VideoCapture(0)
-#sleep to let the camera warm up and adjust to the light
+#sleep to let the camera warm up
 time.sleep(1)
 first_frame = None
 status_list = []
