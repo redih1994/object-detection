@@ -21,6 +21,7 @@ jobs:
     - name: Check Changes and Bump Version
       run: |
         PR_NAME=$(jq -r ".pull_request.title" "$GITHUB_EVENT_PATH")
+        echo "PR_NAME: $PR_NAME"
         if [[ $PR_NAME == *"BreakingChange"* ]]; then
           export VERSION_BUMP='major'
         elif [[ $PR_NAME == *"minor"* ]]; then
