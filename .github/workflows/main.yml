@@ -31,4 +31,4 @@ jobs:
         current_version=$(git describe --abbrev=0)
         new_version=$(python -m semver bump $VERSION_BUMP $current_version)
         echo "New version: $new_version"
-        echo "::set-env name=NEW_VERSION::$new_version"
+        echo "NEW_VERSION=$new_version" >> $GITHUB_ENV
