@@ -32,3 +32,10 @@ jobs:
         new_version=$(python -m semver bump $VERSION_BUMP $current_version)
         echo "New version: $new_version"
         echo "NEW_VERSION=$new_version" >> $GITHUB_ENV
+    - name: Tag new version
+      run: |
+        git config --global user.email "hredi1994@gmail.com"
+        git config --global user.name "redih1994"
+        git tag -a ${{ env.NEW_VERSION }} -m "Bump version to ${{ env.NEW_VERSION }}"
+        - name: Push tags
+          run: git push origin --tags
