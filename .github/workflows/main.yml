@@ -2,6 +2,7 @@ name: trigger skillitall jenkins build job
 
 on:
   push:
+    types: [closed]
     branches:
       - master
 
@@ -18,7 +19,9 @@ jobs:
 
       - name: Get Branch Name
         id: branch_name
-        run: echo "BRANCH_NAME=${{github.event.pull_request.base.ref}}" >> $GITHUB_ENV
+        uses: tonynguyenit18/github-action-custom-vars@v1
+        run: echo $RECENT_MERGED_BRANCH_NAME
+
 
       - name: Setup Python
         uses: actions/setup-python@v2
