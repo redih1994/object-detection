@@ -19,11 +19,8 @@ jobs:
       - name: Get Branch Name
         id: branch_name
         run: |
-          PR_NUMBER=$(jq --raw-output .pull_request.number "$GITHUB_EVENT_PATH")
-          BRANCH_NAME=$(curl -s -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            https://api.github.com/repos/$GITHUB_REPOSITORY/pulls/$PR_NUMBER | jq -r .head.ref)
-          echo "BRANCH_NAME: $BRANCH_NAME"
-          echo "BRANCH_NAME=$BRANCH_NAME" >> $GITHUB_ENV
+          echo "BRANCH_NAME: ${{ github.head_ref || github.ref_name }}" >> $GITHUB_ENV
+          echo "Branch name: $BRANCH_NAME"
 
       - name: Setup Python
         uses: actions/setup-python@v2
