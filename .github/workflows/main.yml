@@ -18,7 +18,7 @@ jobs:
 
       - name: Get Branch Name
         id: branch_name
-        run: echo "BRANCH_NAME=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
+        run: echo "BRANCH_NAME=${{ github.head_ref || github.ref_name }}" >> $GITHUB_ENV
 
       - name: Setup Python
         uses: actions/setup-python@v2
@@ -30,7 +30,7 @@ jobs:
 
       - name: Check Changes and Bump Version
         run: |
-          BRANCH_NAME=${GITHUB_REF#refs/heads/}
+          BRANCH_NAME=${{ github.head_ref || github.ref_name }}
           echo "BRANCH_NAME: $BRANCH_NAME"
           if [[ "$BRANCH_NAME" == *"patch"* ]]; then
             export VERSION_BUMP='patch'
