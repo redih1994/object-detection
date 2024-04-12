@@ -18,8 +18,10 @@ jobs:
 
       - name: Get Branch Name
         id: branch_name
-        uses: tonynguyenit18/github-action-custom-vars@v1
-        run: echo $RECENT_MERGED_BRANCH_NAME
+        steps:
+          - uses: actions/checkout@v2
+          - uses: tonynguyenit18/github-action-custom-vars@v1
+          - run: echo $RECENT_MERGED_BRANCH_NAME
 
 
       - name: Setup Python
