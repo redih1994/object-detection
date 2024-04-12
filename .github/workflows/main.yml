@@ -25,8 +25,9 @@ jobs:
         run: pip install semver
 
       - name: Check Changes and Bump Version
+        uses: tonynguyenit18/github-action-custom-vars@v1
         run: |
-          BRANCH_NAME=${{ github.head_ref || github.ref_name }}
+          BRANCH_NAME=$RECENT_MERGED_BRANCH_NAME
           echo "BRANCH_NAME: $BRANCH_NAME"
           if [[ "$BRANCH_NAME" == *"patch"* ]]; then
             export VERSION_BUMP='patch'
