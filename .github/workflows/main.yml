@@ -25,16 +25,13 @@ jobs:
         run: pip install semver
 
       - name: Check Changes and Bump Version
-        if: github.ref_type == 'branch'
         run: |
-          PR_NAME=$(git log -1 --pretty=%B)
-          echo "PR_NAME: $PR_NAME"
-          if [[ "$PR_NAME" == *"BreakingChange"* ]]; then
-            export VERSION_BUMP='major'
-          elif [[ "$PR_NAME" == *"minor"* ]]; then
-            export VERSION_BUMP='minor'
-          elif [[ "$PR_NAME" == *"patch"* ]]; then
+          BRANCH_NAME=${GITHUB_REF#refs/heads/}
+          echo "BRANCH_NAME: $BRANCH_NAME"
+          if [[ "$BRANCH_NAME" == *"patch"* ]]; then
             export VERSION_BUMP='patch'
+          elif [[ "$BRANCH_NAME" == *"minor"* ]]; then
+            export VERSION_BUMP='minor'
           else
             export VERSION_BUMP='patch'
           fi
