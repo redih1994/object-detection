@@ -42,7 +42,6 @@ jobs:
           new_version=$(python -m semver bump $VERSION_BUMP $current_version)
           echo "New version: $new_version"
           echo "NEW_VERSION=$new_version" >> $GITHUB_ENV
-          echo "$new_version" > version.txt  # Save the new version to a file
       - name: Tag new version
         if: github.ref_type == 'branch'
         run: |
