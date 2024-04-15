@@ -55,3 +55,17 @@ jobs:
         run: |
           git remote set-url origin https://x-access-token:${{ secrets.GH_PAT }}@github.com/redih1994/object-detection.git
           git push origin --tags
+
+      - name: Commit version.txt
+        if: github.ref_type == 'branch'
+        run: |
+          git config --global user.email "hredi1994@gmail.com"
+          git config --global user.name "redih1994"
+          git add version.txt
+          git commit -m "Update version.txt with tag ${env.NEW_VERSION}"
+
+      - name: Push changes
+        if: github.ref_type == 'branch'
+        run: |
+          git remote set-url origin https://x-access-token:${{ secrets.GH_PAT }}@github.com/redih1994/object-detection.git
+          git push origin HEAD:refs/heads/master
