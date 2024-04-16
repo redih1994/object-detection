@@ -14,7 +14,7 @@ def clean_folder():
     images = glob.glob("images/*.png")
     for image in images:
         os.remove(image)
-
+#12332
 while True:
     status = 0
     check, frame = video.read()
