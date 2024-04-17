@@ -59,7 +59,7 @@ jobs:
         if: github.ref_type == 'branch'
         run: |
           echo "${{ env.NEW_VERSION }}" > version.txt  # Overwrite version.txt with the new tag
-          git add version.txt
+          git add mainapp/core/version.txt
           git commit -m "Update version.txt with tag ${{ env.NEW_VERSION }}"
 
 
